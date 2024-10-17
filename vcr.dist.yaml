@@ -1,0 +1,15 @@
+project:
+  name: vonage-serverless-demo-php
+instance:
+  name: dev
+  runtime: php8
+  region: aws.euw1
+  entrypoint: ["apache2-foreground"]
+  build-script: ./build.sh
+  application-id: ""
+  environment:
+    - name: VONAGE_FROM_NUMBER
+      value: ""
+
+debug:
+  entrypoint: [php, -S, 127.0.0.1:3000, -t, ./html]

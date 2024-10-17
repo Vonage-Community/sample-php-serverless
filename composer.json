@@ -1,0 +1,27 @@
+{
+    "name": "vonage/vonage-php-serverless",
+    "description": "Example application made to be deployed to Vonage Cloud Runtime",
+    "autoload": {
+        "psr-4": {
+            "Vonage\\VonagePhpServerless\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jim Seconde",
+            "email": "jim.seconde@vonage.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.14",
+        "slim/psr7": "^1.7",
+        "slim/twig-view": "^3.4",
+        "vlucas/phpdotenv": "^5.6",
+        "guzzlehttp/guzzle": "^7.9",
+        "vonage/client-core": "^4.8",
+        "php-di/slim-bridge": "^3.4",
+      "ext-pdo": "*",
+        "symfony/var-dumper": "^7.1",
+        "spatie/ignition": "^1.15"
+    }
+}

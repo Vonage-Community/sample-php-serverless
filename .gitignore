@@ -1,0 +1,8 @@
+vendor/
+.env
+.DS_Store
+Thumbs.db
+.idea/
+vcr.yaml
+vendor
+node_modules

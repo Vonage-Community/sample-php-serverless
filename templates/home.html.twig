@@ -1,0 +1,121 @@
+<html class="vvd-root">
+    <head>
+        <title>Welcome to Vonage Serverless</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap"
+                rel="stylesheet"
+        />
+        <link
+                rel="stylesheet"
+                href="https://unpkg.com/@vonage/vivid@3.x/styles/tokens/theme-light.css"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/nav/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/nav-item/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/nav-disclosure/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/layout/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/fab/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/side-drawer/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/card/index.js"
+        ></script>
+        <script
+                type="module"
+                src="https://unpkg.com/@vonage/vivid@3.x/icon/index.js"
+        ></script>
+        <style>
+            body {
+                margin: auto;
+            }
+
+            vwc-fab {
+                position: fixed;
+                top: 10px !important;
+                left: 90% !important;
+                inset: auto auto 8px 8px;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container" style="padding-top: 10px">
+        <nav>
+            <vwc-fab
+                    icon="menu-solid"
+                    slot="app-content"
+                    onclick="sideDrawer.open = !sideDrawer.open"
+            ></vwc-fab>
+            <vwc-side-drawer id="sideDrawer" alternate>
+                <vwc-layout gutters="small" column-basis="block">
+                    <vwc-nav id="sideNav">
+                        <vwc-nav-item
+                                href="/"
+                                text="Home"
+                                icon="home-line"
+                                data-value="Home"
+                                onclick="onClick(this)"
+                                aria-current="page"
+                        ></vwc-nav-item>
+                        <vwc-nav-item
+                                href="/verify"
+                                text="Verify Demo"
+                                icon="key-solid"
+                                data-value="Verify"
+                                onclick="onClick(this)"
+                        ></vwc-nav-item>
+                        <vwc-nav-item
+                                href="/sms"
+                                text="SMS Demo"
+                                icon="chat-line"
+                                data-value="SMS"
+                                onclick="onClick(this)"
+                        ></vwc-nav-item>
+                    </vwc-nav>
+                </vwc-layout>
+                <vwc-layout slot="app-content" gutters="medium">
+                    <vwc-card
+                            headline="Welcome to the Vonage PHP Serverless Demo"
+                            subtitle="Open the menu for Demo examples"
+                    >
+                    <vwc-icon
+                            slot="graphic"
+                            name="vonage-mono"
+                            style="font-size: 44px"
+                    ></vwc-icon>
+                    </vwc-card>
+                </vwc-layout>
+            </vwc-side-drawer>
+        </nav>
+    </div>
+    </body>
+    <script>
+        function onClick(el) {
+            const currentNavItem = document.querySelector(
+                'vwc-nav-item[aria-current="page"]'
+            );
+            currentNavItem?.removeAttribute('aria-current');
+            el.setAttribute('aria-current', 'page');
+        }
+    </script>
+</html>
