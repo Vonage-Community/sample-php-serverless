@@ -5,7 +5,7 @@ const archiver = require('archiver');
 
 const vcrBuildDir = path.join(__dirname, 'vcr-build');
 const releaseDir = path.join(__dirname, 'release');
-const repoUrl = 'https://github.com/Vonage-Community/.git';
+const repoUrl = 'https://github.com/Vonage-Community/sample-php-serverless.git';
 
 // Check for version argument
 const version = process.argv[2];
@@ -38,8 +38,8 @@ async function runVcrBuild() {
         await simpleGit().clone(repoUrl, vcrBuildDir);
 
         // Step 3: Copy vcr.yml to vcr-build
-        const neruFilePath = path.join(vcrBuildDir, 'vcr.yml.dist');
-        fs.copyFileSync(neruFilePath, path.join(vcrBuildDir, 'vcr.yml'));
+        const neruFilePath = path.join(vcrBuildDir, 'vcr.dist.yaml');
+        fs.copyFileSync(neruFilePath, path.join(vcrBuildDir, 'vcr.yaml'));
         fs.rmSync(vcrBuildDir + '/.git', { recursive: true })
         fs.rmSync(vcrBuildDir + '/.gitignore')
         fs.rmSync(neruFilePath)
