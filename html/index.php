@@ -26,7 +26,7 @@ IgnitionAlias::make()->setTheme('dark')->register();
 $container = new Container();
 $container->set(Client::class, function () {
     $applicationId = $_ENV['API_APPLICATION_ID'];
-    $privateKey = file_get_contents(__DIR__ . '/../' . $_ENV['PRIVATE_KEY']);
+    $privateKey = $_ENV['PRIVATE_KEY'];
     $credentials = new Client\Credentials\Keypair($privateKey, $applicationId);
 
     return new Client($credentials);
